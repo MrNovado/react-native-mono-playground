@@ -2,9 +2,21 @@
   "name": "@rn/common",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "devDependencies": {
+    "@types/react": "16.9.0",
+    "@types/react-dom": "16.9.0",
+    "@types/react-native": "^0.63.2",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "0.63.2",
+    "react-native-web": "^0.13.13"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
