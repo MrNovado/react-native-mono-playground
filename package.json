@@ -11,7 +11,8 @@
     "build:ios": "yarn workspace @rn/napp ios",
     "build:common": "yarn workspace @rn/common build",
     "build:web": "yarn workspace @rn/web build",
-    "start:web": "yarn workspace @rn/web start"
+    "start:web": "yarn workspace @rn/web start",
+    "serve:web": "yarn workspace @rn/web serve"
   },
   "author": "",
   "license": "ISC",
