@@ -16,7 +16,8 @@
     "react-native-web": "^0.13.13"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "clean:build": "rm -rf dist"
   },
   "keywords": [],
   "author": "",

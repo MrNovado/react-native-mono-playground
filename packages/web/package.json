@@ -27,7 +27,8 @@
     "build": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts test",
     "eject": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts eject",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "clean:build": "rm -rf build"
   },
   "eslintConfig": {
     "extends": "react-app"
