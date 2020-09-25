@@ -21,3 +21,24 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 - Working with Android emulators also requires at the very least `50GB` of free space! So, given that it will only work in its default location, Windows (maybe others too) users will have to make sure they have a lot of free space on their `C:/` drive available beforehand.
 - Working with `react-native-web` requires adding `cross-env SKIP_PREFLIGHT_CHECK=true` before `react-scripts`. Some sort of dependency collision, not sure why exactly (?).
 - `react-native-web` is dependant on `react-dom`! Removing `react-dom` from dependencies will break builds.
+
+## Watchman installation guide
+
+https://github.com/wix/wml/issues/38#issuecomment-683534388
+
+> For people who late that have this issue:
+> Steps by step how to run WML
+> 
+> * Install `wml`: `$ npm install -g wml`
+> * Install Watchman:
+>   
+>   * Windows: https://github.com/facebook/watchman/releases (Add to PATH and restart terminal)
+>   * MacOS: `$ brew update && brew install watchman`
+> * Delete existing watches: `$ watchman watch-del-all`
+> * Activate `watchman` for `wml`: `$ watchman watch "C:\Program Files\nodejs\node_modules\wml\src"`
+>   
+>   * (Windows) Find nodejs package location: `$ npm list -g --depth 0 | head -1` > You will see something like this `C:\Program Files\nodejs`
+>   * (MacOS) Find nodejs location: `$ which node`
+> * Add link: `$ wml add <package to sync location> <dest package location>`
+> * Watch & Sync: `$ wml start`
+
