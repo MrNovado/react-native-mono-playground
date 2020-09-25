@@ -9,11 +9,16 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 - https://github.com/benawad/react-native-web-series
 - https://github.com/devhubapp/devhub
 
+# Docs
+
+- https://reactnative.dev/docs/environment-setup
+- https://github.com/necolas/react-native-web ( http://necolas.github.io/react-native-web/docs )
+
 # Prerequisites
 
 - Node `12.10.0`!
 - Yarn ~`1.22+`
-- `wix/wml` & `facebook/watchman` global install
+- `wix/wml` & `facebook/watchman` global install (see below)
 - npm `serve` global install
 - `xcode|android` sdk installation (https://reactnative.dev/docs/environment-setup follow the guide very closely! __do not modify install paths!__)
 
