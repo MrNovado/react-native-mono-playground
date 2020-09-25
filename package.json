@@ -3,7 +3,15 @@
   "name": "react-native-mono-playground",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:all": "rm -rf node_modules packages/*/node_modules yarn.lock packages/*/yarn.lock",
+    "prepare:napp-link-common": "yarn workspace @rn/napp common:link",
+    "watch:napp-start-common": "yarn workspace @rn/napp common:start",
+    "watch:napp-metro-start": "yarn workspace @rn/napp start",
+    "build:android": "yarn workspace @rn/napp android",
+    "build:ios": "yarn workspace @rn/napp ios",
+    "build:common": "yarn workspace @rn/common build",
+    "build:web": "yarn workspace @rn/web build",
+    "start:web": "yarn workspace @rn/web start"
   },
   "author": "",
   "license": "ISC",
