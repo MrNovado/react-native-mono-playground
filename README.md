@@ -32,6 +32,35 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 - Working with `react-native-web` requires adding `cross-env SKIP_PREFLIGHT_CHECK=true` before `react-scripts`. Some sort of dependency collision, not sure why exactly (?).
 - `react-native-web` is dependant on `react-dom`! Removing `react-dom` from dependencies will break builds.
 
+## iOS specific issues
+
+### Podfile.lock missing when initial react-native run-ios
+
+https://stackoverflow.com/questions/58546659/podfile-lock-missing-when-initial-react-native-run-ios/58561773#58561773 
+
+> Step 1:
+> `sudo gem install cocoapods`
+>
+> Step 2: 
+> `cd ios && pod install && cd ../ && react-native run-ios`
+>
+> If you still get error while installing pods continue the below steps.
+> 
+> Step 3: Put this in console ->
+> `xcrun -k --sdk iphoneos --show-sdk-path`
+>
+> if the answer is
+> ```
+> xcrun:_ error: SDK "iphoneos" cannot be located
+> xcrun: error: SDK "iphoneos" cannot be located
+> xcrun: error: unable to lookup item 'Path' in SDK 'iphoneos'
+> ```
+> then put this:
+> 
+> `sudo xcode-select --switch /Applications/Xcode.app`
+>
+> Then install pod again
+
 ## Watchman installation guide
 
 https://github.com/wix/wml/issues/38#issuecomment-683534388
