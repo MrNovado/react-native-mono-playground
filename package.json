@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "clean:modules": "rm -rf node_modules packages/*/node_modules yarn.lock packages/*/yarn.lock",
-    "clean:all-builds": "clean:build-common && clean:build-web",
+    "clean:all-builds": "yarn clean:build-common && yarn clean:build-web",
     "clean:build-common": "yarn workspace @rn/common clean:build",
     "clean:build-web": "yarn workspace @rn/web clean:build",
     "prepare:napp-link-common": "yarn workspace @rn/napp common:link",
