@@ -8,6 +8,7 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 
 - https://github.com/benawad/react-native-web-series
 - https://github.com/devhubapp/devhub
+- https://github.com/Fallup/react-monorepo-example/tree/base-setup (fork: https://github.com/MrNovado/react-monorepo-example) following: https://blog.salsitasoft.com/pitfalls-of-building-a-monorepo-for-react-native-and-react-web-apps/
 
 # Docs
 
