@@ -13,6 +13,8 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 
 - https://reactnative.dev/docs/environment-setup
 - https://github.com/necolas/react-native-web ( http://necolas.github.io/react-native-web/docs )
+- https://medium.com/@huntie/a-concise-guide-to-configuring-react-native-with-yarn-workspaces-d7efa71b6906
+- https://blog.salsitasoft.com/pitfalls-of-building-a-monorepo-for-react-native-and-react-web-apps/
 
 # Prerequisites
 
@@ -24,9 +26,19 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 
 # Issues
 
+## Major
+
+- React native monorepo setup: symlinking & hoisting (metro & yarn) issues:
+  - ~~React-native still doesn't understand symlinking (https://github.com/facebook/metro/issues/1 , https://github.com/viewstools/yarn-workspaces-cra-crna/issues/26), so we need to use copy-watchers like `wix/wml` https://github.com/wix/wml/issues/38 . It depends on https://github.com/facebook/watchman/releases , so we need to install & configure the `facebook/watchman` as well.~~
+  - Instead of `wix/wml` you might wanna consider to add `watchFolders` to `metro.config.js`, which is effectively the same thing: https://gist.github.com/huntie/85ea491763b444bfa1bdc8e997fc2765#file-metro-config-js-L15-L22
+  - Not only that, but all hoisted dependencies won't be visible for metro bundler (https://github.com/facebook/metro/issues/7)! Even if you add a `[dep-a, dep-a/**]` nohoist rule, all the dependencies of `dep-a/** (e.g.: dep-a/.../dep-c)` would still be hoisted it seems & metro won't be able to bundle them. https://stackoverflow.com/questions/56675874/nohoist-with-workspaces-still-hoisting
+  - Also, you cannot use nohoist-all, like `[**]` or `[*, */**]` rules with yarn unfortunately since it will throw ENOENT: https://github.com/yarnpkg/yarn/issues/6988
+  - So the solution is to use a combination of nohoist rules, metro white & black dep lists: https://medium.com/@huntie/a-concise-guide-to-configuring-react-native-with-yarn-workspaces-d7efa71b6906 , https://blog.salsitasoft.com/pitfalls-of-building-a-monorepo-for-react-native-and-react-web-apps/
+
+## Minor
+
 - We __should-NOT__ use global installations of `react-native/-cli`. Installing any of those globally will break builds.
 - Metro has a bug with regular expression https://github.com/facebook/react-native/issues/26598 . Workaround is to downgrade `node` to `12.10.0`.
-- React-native still doesn't understand symlinking, so we need to use copy-watchers like `wix/wml` https://github.com/wix/wml/issues/38 . It depends on https://github.com/facebook/watchman/releases , so we need to install & configure the `facebook/watchman` as well.
 - Installing Android-story has its own quirks. https://reactnative.dev/docs/environment-setup . Basically, we should follow the guide to the letter, installing `Android/Sdk` anywhere-else besides its default location will break builds -- resetting `Path/ANDROID_HOME` variables makes no diffrence -- only default install works.
 - Working with Android emulators also requires at the very least `50GB` of free space! So, given that it will only work in its default location, Windows (maybe others too) users will have to make sure they have a lot of free space on their `C:/` drive available beforehand.
 - Working with `react-native-web` requires adding `cross-env SKIP_PREFLIGHT_CHECK=true` before `react-scripts`. Some sort of dependency collision, not sure why exactly (?).
@@ -80,4 +92,3 @@ https://github.com/wix/wml/issues/38#issuecomment-683534388
 >   * (MacOS) Find nodejs location: `$ which node`
 > * Add link: `$ wml add <package to sync location> <dest package location>`
 > * Watch & Sync: `$ wml start`
-
