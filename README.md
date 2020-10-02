@@ -2,7 +2,7 @@
 
 React-native + WEB monorepo playground. Following https://github.com/benawad/react-native-web-series tutorial. FreeCodeCamp has a full video here: https://youtu.be/_CBYbEGvxYY .
 
-Unfortunately, Ben' build won't start anymore (at least I wasn't been able to start it on android). But the approach shown in the tutorial is still solid & should be possible to follow with the new `0.63.2` RN' version.
+Unfortunately, Ben' build won't start anymore (at least I haven't been able to start it on android). But the approach shown in the tutorial is still solid & should be possible to follow with the new `0.63.2` RN' version.
 
 ---
 
