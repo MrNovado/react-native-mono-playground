@@ -10,7 +10,7 @@ Unfortunately, Ben' build won't start anymore (at least I wasn't been able to st
 - https://blog.salsitasoft.com/pitfalls-of-building-a-monorepo-for-react-native-and-react-web-apps/
 - https://youtu.be/4Tv8T5GKtTs
 
-I don't know if Martin 'Falluo' Gajdičiar is still working on this & if he still considers this approach beneficial, but I'm personally disappointed by the result.  It's simply brutal. It feels like you always going against the grain here & what's more appalling is how much rn-monorepo examples are out there and how ~none of them even tries to show you or mentions on how to expand your common package with non-primitive dependencies.
+I don't know if Martin 'Fallup' Gajdičiar is still working on this & if he still considers this approach beneficial, but I'm personally disappointed by the result.  It's simply brutal. It feels like you always going against the grain here & what's more appalling is how much rn-monorepo examples are out there and how ~none of them even tries to show you or mentions on how to expand your common package with non-primitive dependencies.
 
 Basically, going this route you are on your own. And if some dependency you are adding to your common won't work -- tough luck. Spending days or weeks on fixing deps-list & tinkering/hacking with metro/yarn/ts/cra configs is not something I personally look forward to.
 
